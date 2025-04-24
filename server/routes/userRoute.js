@@ -1,14 +1,24 @@
-import express from "express"
+import express from "express";
+import { create, deleteuser, getAllUsers, getUserById, update } from "../controller/userController.js";
+import { verifyToken } from "../middleware/authMiddleware.js";
+import { checkRole } from "../middleware/roleMiddleware.js";
 
-import { create, deleteuser, getAllUsers, getUserById, update } from "../controller/userController.js"
+const userRoute = express.Router();
 
-const route = express.Router();
+// Rute publik (untuk register)
+userRoute.post("/user", create);
 
-route.post("/user", create);
-route.get("/users", getAllUsers);
-route.get("/user/:id", getUserById);
-route.put("/update/user/:id", update);
-Router.delete("/delete/user/:id", deleteuser);
+// Rute yang membutuhkan autentikasi
+userRoute.get("/user/:id", verifyToken, getUserById);
 
-export default route;
+// Rute yang membutuhkan role dosen atau mitra
+userRoute.get("/users", verifyToken, checkRole(['dosen', 'mitra']), getAllUsers);
+
+// Rute yang hanya bisa diakses oleh dosen
+userRoute.put("/update/user/:id", verifyToken, checkRole(['dosen']), update);
+
+// Rute yang hanya bisa diakses oleh mitra
+userRoute.delete("/delete/user/:id", verifyToken, checkRole(['mitra']), deleteuser);
+
+export default userRoute;
 
