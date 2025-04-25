@@ -1,7 +1,7 @@
-Overview
+# Overview
 This repository contains the backend code for a Role-Based Access Control (RBAC) system designed for a university application. The system supports three user roles: mahasiswa (student), dosen (lecturer), and mitra (partner).
 
-Technologies Used
+# Technologies Used
 Node.js with Express.js framework
 MongoDB for database storage
 Mongoose for MongoDB object modeling
@@ -9,6 +9,8 @@ JWT for authentication
 bcrypt for password hashing
 dotenv for environment variables management
 
+# Project Structure
+```
 backend-project-rpl/
 ├── index.js                      # Entry point of the application
 ├── server/
@@ -27,14 +29,24 @@ backend-project-rpl/
 │       └── createInitialUsers.js # Script to create initial users
 ├── package.json                  # Project dependencies and scripts
 └── .env                          # Environment variables (not in repo)
+```
+## Setup and Installation
+## Getting Started
 
-Setup and Installation
-1.Clone the repository
-2.Install dependencies
-npm install
-3.Run the application
-# Development mode
-npm run dev
+To get started with the project, follow these steps:
 
-# Production mode
-npm start
+1. **Clone the repository**:
+   ```
+   git clone <repository-url>
+   cd backend-poject-rpl
+   ```
+
+2. **Install dependencies**:
+   ```
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```
+   npm run dev
+   ```
