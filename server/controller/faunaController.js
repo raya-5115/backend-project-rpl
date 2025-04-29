@@ -49,3 +49,20 @@ export const update =  async(req, res) => {
     res.status(500).json({ errorMessage: error.message });
   }
 };
+
+export const deleteFauna = async(req, res) => {
+  try {
+    const id = req.params.id;
+    const faunaExist = await fauna.findById(id);
+    
+    if(!faunaExist) {
+      return res.status(404).json({ message: "fauna not found."});
+    }
+
+    await fauna.findByIdAndDelete(id);
+    res.status(200).json({message:"fauna deleted succesfully."});
+    
+  } catch (error) {
+    res.status(500).json({ errorMessage: error.message });
+  }
+};

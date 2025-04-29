@@ -17,6 +17,10 @@ const faunaSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  jenis_makanan:{
+    type: String,
+    required: true
+  },
 
 },)
 
