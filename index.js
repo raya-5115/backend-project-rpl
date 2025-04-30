@@ -5,6 +5,7 @@ import dotenv from "dotenv"
 import userRoute from "./server/routes/userRoute.js"
 import authRoute from "./server/routes/authRoute.js"
 import faunaRoute from "./server/routes/faunaRoute.js"
+import tamanRoute from "./server/routes/tamanRoute.js"
 import cors from "cors";
 
 const app = express();
@@ -30,3 +31,4 @@ mongoose
 app.use("/api", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api", faunaRoute);
+app.use("/api", tamanRoute);
