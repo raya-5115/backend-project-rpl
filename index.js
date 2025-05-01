@@ -1,12 +1,15 @@
+// Imprt Library
 import express from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
+import cors from "cors"
+
+// Import Route data
 import userRoute from "./server/routes/userRoute.js"
 import authRoute from "./server/routes/authRoute.js"
 import faunaRoute from "./server/routes/faunaRoute.js"
 import tamanRoute from "./server/routes/tamanRoute.js"
-import cors from "cors";
 
 const app = express();
 app.use(bodyParser.json());

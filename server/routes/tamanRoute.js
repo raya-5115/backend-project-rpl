@@ -1,6 +1,8 @@
 import express from "express";
 import { create, update, deleteTamanNasional } from "../controller/tamanController.js"
 
+import { verifyToken } from "../middleware/authMiddleware.js";
+import { checkRole } from "../middleware/roleMiddleware.js";
 
 const tamanRoute = express.Router();
 
@@ -11,6 +13,6 @@ tamanRoute.post("/taman", create);
 tamanRoute.put("/update/taman/:id", update);
 
 // Menghapus data taman
-tamanRoute.delete("/delete/taman/:id", deleteTamanNasional);
+tamanRoute.delete("/delete/taman/:id",  checkRole(['mitra']), deleteTamanNasional);
 
 export default tamanRoute; 
