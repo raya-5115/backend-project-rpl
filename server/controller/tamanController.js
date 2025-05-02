@@ -3,9 +3,9 @@ import TamanNasional from "../model/tamanModel.js"
 export const create = async(req, res) => {
   try {
     const newTamanNasional = new TamanNasional(req.body);
-    const {email} = newTamanNasional;
+    const {nama} = newTamanNasional;
 
-    const TamanNasionalExist = await TamanNasional.findOne({email});
+    const TamanNasionalExist = await TamanNasional.findOne({nama});
     if(TamanNasionalExist){
       return res.status(400).json({ message: "Taman Nasional already exist."});
     }
