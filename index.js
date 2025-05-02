@@ -6,6 +6,9 @@ import dotenv from "dotenv"
 import cors from "cors"
 
 // Import Route data
+import cors from "cors"
+
+// Import Route data
 import userRoute from "./server/routes/userRoute.js"
 import authRoute from "./server/routes/authRoute.js"
 import faunaRoute from "./server/routes/faunaRoute.js"
