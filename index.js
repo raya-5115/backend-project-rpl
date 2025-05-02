@@ -1,11 +1,18 @@
+// Import Library
 import express from "express"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
 import dotenv from "dotenv"
+import cors from "cors"
+
+// Import Route data
+import cors from "cors"
+
+// Import Route data
 import userRoute from "./server/routes/userRoute.js"
 import authRoute from "./server/routes/authRoute.js"
 import faunaRoute from "./server/routes/faunaRoute.js"
-import cors from "cors";
+import tamanRoute from "./server/routes/tamanRoute.js"
 
 const app = express();
 app.use(bodyParser.json());
@@ -30,3 +37,4 @@ mongoose
 app.use("/api", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api", faunaRoute);
+app.use("/api", tamanRoute);

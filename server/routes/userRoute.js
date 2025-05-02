@@ -15,10 +15,10 @@ userRoute.get("/user/:id", verifyToken, getUserById);
 userRoute.get("/users", verifyToken, checkRole(['dosen', 'mitra']), getAllUsers);
 
 // Rute yang hanya bisa diakses oleh dosen
-userRoute.put("/update/user/:id", verifyToken, checkRole(['dosen']), update);
+userRoute.put("/update/user/:id", verifyToken, checkRole(['dosen', 'mitra']), update);
 
 // Rute yang hanya bisa diakses oleh mitra
-userRoute.delete("/delete/user/:id", verifyToken, checkRole(['mitra']), deleteuser);
+userRoute.delete("/delete/user/:id", verifyToken, checkRole(['dosen', 'mitra']), deleteuser);
 
 export default userRoute;
 

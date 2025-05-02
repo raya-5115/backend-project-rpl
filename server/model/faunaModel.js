@@ -21,6 +21,16 @@ const faunaSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  status_konservasi: {
+    type: String,
+    enum: ['Punah', 'Terancam Punah', 'Rentan', 'Hampir Terancam', 'Berisiko Rendah']
+  },
+  gambar: {
+    type: String  // URL to image
+  },
+  populasi: {
+    type: Number
+  },
 
 },)
 
