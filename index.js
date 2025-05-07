@@ -9,6 +9,7 @@ import cors from "cors"
 import userRoute from "./server/routes/userRoute.js"
 import authRoute from "./server/routes/authRoute.js"
 import faunaRoute from "./server/routes/faunaRoute.js"
+import floraRoute from "./server/routes/floraRoute.js"
 import tamanRoute from "./server/routes/tamanRoute.js"
 
 const app = express();
@@ -31,7 +32,8 @@ mongoose
     console.error("MongoDB connection error:", error);
   });
 
-app.use("/api", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api", userRoute);
 app.use("/api", faunaRoute);
+app.use("/api", floraRoute);
 app.use("/api", tamanRoute);

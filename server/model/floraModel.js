@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const faunaSchema = new mongoose.Schema({
+const floraSchema = new mongoose.Schema({
   nama_ilmiah:{
     type: String,
     required: true
@@ -17,7 +17,7 @@ const faunaSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  jenis_makanan:{
+  jenis_tumbuhan:{
     type: String,
     required: true
   },
@@ -26,7 +26,7 @@ const faunaSchema = new mongoose.Schema({
     enum: ['Punah', 'Terancam Punah', 'Rentan', 'Hampir Terancam', 'Berisiko Rendah']
   },
   gambar: {
-    type: String 
+    type: String  
   },
   populasi: {
     type: Number
@@ -34,4 +34,4 @@ const faunaSchema = new mongoose.Schema({
 
 },)
 
-export default mongoose.model("faunas", faunaSchema)
+export default mongoose.model("floras", floraSchema)
