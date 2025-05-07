@@ -17,7 +17,7 @@ export const create = async(req, res) => {
   }
 };
 
-export const getAllfloras = async(req, res) => {
+export const getAllFloras = async(req, res) => {
   try {
     const floraData = await flora.find();
 
@@ -50,7 +50,7 @@ export const update =  async(req, res) => {
   }
 };
 
-export const deleteflora = async(req, res) => {
+export const deleteFlora = async(req, res) => {
   try {
     const id = req.params.id;
     const floraExist = await flora.findById(id);
